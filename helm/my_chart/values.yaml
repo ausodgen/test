@@ -1,0 +1,53 @@
+frontend:
+  labels:
+    app: todo-frontend
+
+  deploy:
+    name: todo-frontend-deploy
+    namespace: todo-list
+    replicas: 1
+    containers:
+      name: todo-frontend
+      imagePullPolicy: IfNotPresent
+      image: gigpops/fe-applet:latest
+      ports:
+        containerPort: 3000
+        name: httpfront
+
+  service:
+    name: todo-frontend-svc
+    type: NodePort
+    labels:
+      app: todo-frontend
+    ports:
+      name: port-frontend
+      port: 3000
+      nodePort: 30017
+      targetPort: httpfront
+
+backend:
+  labels:
+    app: todo-backend
+
+  deploy:
+    name: todo-backend-deploy
+    namespace: todo-list
+    replicas: 1
+    containers:
+      name: todo-backend
+      imagePullPolicy: IfNotPresent
+      image: gigpops/be-applet:latest
+      ports:
+        containerPort: 8000
+        name: httpback
+
+  service:
+    name: todo-backend-svc
+    type: NodePort
+    labels:
+      app: todo-backend
+    ports:
+      name: port-backend
+      port: 8000
+      nodePort: 30018
+      targetPort: httpback
