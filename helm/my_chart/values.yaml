@@ -27,10 +27,10 @@ frontend:
 
   resources:
     requests:
-      memory: "256Mi"
+      memory: "512Mi"
       cpu: "256m"
     limits:
-      memory: "512Mi"
+      memory: "1024Mi"
       cpu: "512m"
 
 backend:
@@ -62,8 +62,8 @@ backend:
 
   resources:
     requests:
-      memory: "256Mi"
+      memory: "512Mi"
       cpu: "256m"
     limits:
-      memory: "512Mi"
+      memory: "1024Mi"
       cpu: "512m"
