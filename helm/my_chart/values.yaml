@@ -25,6 +25,14 @@ frontend:
       nodePort: 30017
       targetPort: httpfront
 
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "256m"
+    limits:
+      memory: "512Mi"
+      cpu: "512m"
+
 backend:
   labels:
     app: todo-backend
@@ -51,3 +59,11 @@ backend:
       port: 8000
       nodePort: 30018
       targetPort: httpback
+
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "256m"
+    limits:
+      memory: "512Mi"
+      cpu: "512m"

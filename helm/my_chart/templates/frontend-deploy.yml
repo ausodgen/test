@@ -25,3 +25,10 @@ spec:
           env:
           - name: REACT_APP_BACKEND_API_BASE_URL
             value: "http://todo-api.apps.127.0.0.1.nip.io"
+          resources:
+            requests:
+              memory: {{ .Values.frontend.resources.requests.memory }}
+              cpu: {{ .Values.frontend.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.frontend.resources.limits.memory }}
+              cpu: {{ .Values.frontend.resources.limits.cpu }}

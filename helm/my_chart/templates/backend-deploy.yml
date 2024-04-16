@@ -25,3 +25,10 @@ spec:
           env:
             - name: DATABASE_URL
               value: "postgresql://postgres:postgres@postgres:5432/postgres"
+          resources:
+            requests:
+              memory: {{ .Values.backend.resources.requests.memory }}
+              cpu: {{ .Values.backend.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.backend.resources.limits.memory }}
+              cpu: {{ .Values.backend.resources.limits.cpu }}
